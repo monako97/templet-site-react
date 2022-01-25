@@ -1,6 +1,6 @@
 {
   "name": "plugin-site-template",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "静态站点模版",
   "main": "index.js",
   "scripts": {},
