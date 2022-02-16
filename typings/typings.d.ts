@@ -11,4 +11,5 @@ declare module './index.less' {
 
 interface PureComponentProps {
   path: string;
+  selfUrl: string;
 }
