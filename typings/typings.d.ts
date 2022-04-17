@@ -8,7 +8,12 @@ declare module './index.less' {
 
   export default styles;
 }
-
+interface Window {
+  rootInstance: {
+    render(children: React.ReactChild | Iterable<React.ReactNode>): void;
+    unmount(): void;
+  };
+}
 interface PureComponentProps {
   path: string;
   selfUrl: string;
