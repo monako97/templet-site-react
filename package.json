@@ -1,5 +1,5 @@
 {
-  "name": "plugin-site-template",
+  "name": "template-site",
   "version": "1.1.2",
   "description": "静态站点模版",
   "main": "index.js",
