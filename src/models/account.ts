@@ -39,7 +39,7 @@ const model: ModelType<UserModelType> = {
       const resp: ResponseBody = yield call(() => loginByUserName(payload.data));
 
       yield put({
-        type: 'user/saveUserInfo',
+        type: 'account/saveUserInfo',
         payload: resp.result,
       });
     },
@@ -51,7 +51,7 @@ const model: ModelType<UserModelType> = {
       const resp: ResponseBody = yield call(() => loginByUserName(payload.data));
 
       yield put({
-        type: 'user/saveUserInfo',
+        type: 'account/saveUserInfo',
         payload: resp.result,
       });
     },
