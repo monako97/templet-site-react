@@ -1,6 +1,4 @@
-import { request } from '@/services';
-import type { ResponseBody } from '@/services';
-import type { UserInfo } from '@/models/account';
+import { request, type ResponseBody } from '@/services';
 
 export type LoginByUserNameParams = {
   username: string;

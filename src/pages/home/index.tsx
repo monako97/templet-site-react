@@ -1,16 +1,24 @@
-import React from 'react';
-import { useLocale, useOutlet, useSelector, shallowEqual } from 'PackageNameByCore';
-import styles from './index.less';
-import type { UserModelType } from '@/models/account';
+import React, { useEffect } from 'react';
+import { useDispatch, useLocale, useOutlet, useSelector, shallowEqual } from 'PackageNameByCore';
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
   const outlet = useOutlet();
   const { getLanguage } = useLocale();
-  const userInfo = useSelector((state: { account: UserModelType }) => state.account, shallowEqual);
+  const userInfo = useSelector((state: Models) => state.account, shallowEqual);
 
+  useEffect(() => {
+    dispatch({
+      type: 'account/fetchLogin',
+      payload: {
+        username: 'admin',
+        password: '123456a',
+      },
+    });
+  }, [dispatch]);
   return (
-    <React.Fragment>
-      <div className={styles.details}>
+    <>
+      <div>
         <details>
           <summary>{getLanguage('user-info')}</summary>
           <pre>
@@ -31,7 +39,7 @@ const Home: React.FC = () => {
           {outlet}
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

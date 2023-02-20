@@ -4,16 +4,16 @@
     left: 0;
     z-index: 9;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding-top: var(--area-padding-top);
     width: 100%;
-    height: @header-height;
-    padding-top: @area-padding-top;
-    color: @text-color;
-    font-weight: bold;
+    height: var(--header-height);
     font-size: 24px;
+    font-weight: bold;
     text-align: center;
-    background-color: @header-bg;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    background-color: rgb(255 255 255 / 70%);
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 1%);
     backdrop-filter: blur(16px);
 }

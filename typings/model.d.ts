@@ -1,0 +1,3 @@
+interface Models {
+  account: AccountModel;
+}

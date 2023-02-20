@@ -2,9 +2,7 @@ import type { MockConfiguration } from 'PackageNameByMock';
 
 const conf: MockConfiguration = {
   'POST /api/upload_file': (req, res) => {
-    const { files } = req;
-
-    const strBase64 = Buffer.from(files[0].buffer).toString('base64');
+    const strBase64 = Buffer.from(req.files[0].buffer).toString('base64');
 
     const resp = {
       status: 200,

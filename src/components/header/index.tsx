@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import styles from './index.less';
 import { matchUtil, useLocation, useLocale } from 'PackageNameByCore';
+import './index.css';
 
 const Header = () => {
   const l = useLocation();
@@ -9,7 +9,7 @@ const Header = () => {
     return matchUtil(l.pathname);
   }, [l.pathname]);
 
-  return <header className={styles.header}>{getLanguage(match.i18n || match.key)}</header>;
+  return <header className="header">{getLanguage(match.i18n || match.key)}</header>;
 };
 
 export default Header;

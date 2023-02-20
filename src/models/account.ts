@@ -1,54 +1,19 @@
-import { loginByUserName } from '@/services/user';
-import type { ModelType, ModelActionType, ModelEffectMap } from 'PackageNameByCore';
+import type { Model, ModelAction, ModelEffect } from 'PackageNameByCore';
 import type { ResponseBody } from 'PackageNameByRequest';
+import { loginByUserName } from '@/services/user';
 
-export interface UserInfo {
-  address?: string;
-  avatar?: string;
-  birthday?: number;
-  code?: string;
-  comment?: string;
-  create_time?: number;
-  email?: string;
-  id: number;
-  last_active_ip?: string;
-  last_active_time?: number;
-  password?: string;
-  phone?: string;
-  status?: number;
-  update_time?: number;
-  description?: string;
-  username: string;
-}
-
-export type UserModelType = {
-  info?: UserInfo;
-};
-
-const model: ModelType<UserModelType> = {
+const model: Model<AccountModel> = {
   // model名称，view层用于提取state的key，需要保证唯一
-  namespace: 'user',
+  namespace: 'account',
   // 初始state状态
   state: {},
   effects: {
     // 用户名登录
-    *fetchLoginByUserName(
-      { payload }: Partial<ModelActionType>,
-      { call, put }: ModelEffectMap
+    *fetchLogin(
+      { payload }: Partial<ModelAction>,
+      { call, put }: ModelEffect
     ): Generator<unknown, void, ResponseBody> {
-      const resp: ResponseBody = yield call(() => loginByUserName(payload.data));
-
-      yield put({
-        type: 'account/saveUserInfo',
-        payload: resp.result,
-      });
-    },
-    // Email登录
-    *fetchLoginByEmail(
-      { payload }: Partial<ModelActionType>,
-      { call, put }: ModelEffectMap
-    ): Generator<unknown, void, ResponseBody> {
-      const resp: ResponseBody = yield call(() => loginByUserName(payload.data));
+      const resp: ResponseBody = yield call(() => loginByUserName(payload));
 
       yield put({
         type: 'account/saveUserInfo',
@@ -57,14 +22,8 @@ const model: ModelType<UserModelType> = {
     },
   },
   reducers: {
-    saveUserInfo(state: UserModelType, action: ModelActionType): UserModelType {
+    saveUserInfo(state: AccountModel, action: ModelAction): AccountModel {
       return { ...state, info: action.payload };
-    },
-    logout(): UserModelType {
-      return {};
-    },
-    reset(): UserModelType {
-      return {};
     },
   },
 };
