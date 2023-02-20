@@ -1,7 +1,10 @@
+import { DEV } from 'PackageNameByCore/build/process-env';
 import type { PartialConfigType } from 'PackageNameByCore';
 
 const conf: PartialConfigType = {
-  routeBaseName: '/',
+  publicPath: DEV ? '/' : './',
+  routerMode: 'hash',
+  miniIdc: false,
   importOnDemand: {
     antd: {
       transform: 'antd/es/${member}',
