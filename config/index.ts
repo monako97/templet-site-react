@@ -1,13 +1,10 @@
-import { DEV } from 'PackageNameByCore/build/process-env';
 import type { PartialConfigType } from 'PackageNameByCore';
 
 const conf: PartialConfigType = {
-  publicPath: DEV ? '/' : './',
-  routerMode: 'hash',
-  miniIdc: false,
   importOnDemand: {
-    antd: {
-      transform: 'antd/es/${member}',
+    'neko-ui': {
+      transform: 'neko-ui/es/${member}',
+      memberTransformers: ['dashed_case'],
     },
     lodash: {
       transform: 'lodash/${member}',
@@ -20,7 +17,7 @@ const conf: PartialConfigType = {
       changeOrigin: true,
       pathRewrite: { '^/api/': '/' },
       secure: false,
-    },
+    }
   ] as unknown as PartialConfigType['proxy'],
 };
 

@@ -8,20 +8,7 @@
     --main-padding-bottom: calc(var(--footer-height) + var(--area-padding-bottom));
 }
 
-.body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.body main {
-    overflow-y: auto;
-    padding: var(--main-padding-top) 8px var(--main-padding-bottom);
-    flex: 1;
-}
-
-.body pre {
+pre {
     overflow: auto;
     border-radius: var(--border-radius);
     color: #fff;

@@ -11,11 +11,8 @@ declare module './index.less' {
 
 interface Window {
   rootInstance: {
+    // eslint-disable-next-line no-unused-vars
     render(children: React.ReactChild | Iterable<React.ReactNode>): void;
     unmount(): void;
   };
-}
-interface PureComponentProps {
-  path: string;
-  selfUrl: string;
 }

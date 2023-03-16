@@ -1,28 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useLocale, useOutlet, useSelector, shallowEqual } from 'PackageNameByCore';
+import React, { type FC, useEffect } from 'react';
+import { localizable, useOutlet } from 'PackageNameByCore';
+import { account } from '@/store';
 
-const Home: React.FC = () => {
-  const dispatch = useDispatch();
+const Home: FC = () => {
+  const { info } = account;
   const outlet = useOutlet();
-  const { getLanguage } = useLocale();
-  const userInfo = useSelector((state: Models) => state.account, shallowEqual);
+  const { t } = localizable;
 
   useEffect(() => {
-    dispatch({
-      type: 'account/fetchLogin',
-      payload: {
-        username: 'admin',
-        password: '123456a',
-      },
+    account.loginUsername({
+      username: 'admin',
+      password: '123456a',
     });
-  }, [dispatch]);
+  }, []);
   return (
     <>
       <div>
         <details>
-          <summary>{getLanguage('user-info')}</summary>
+          <summary>{t['user-info']}</summary>
           <pre>
-            <code>{JSON.stringify(userInfo, null, 4)}</code>
+            <code>{JSON.stringify(info, null, 4)}</code>
           </pre>
         </details>
         <details>
@@ -35,7 +32,7 @@ const Home: React.FC = () => {
 
       {outlet && (
         <div>
-          {getLanguage('sub-page-view')}
+          {t['sub-page-view']}
           {outlet}
         </div>
       )}

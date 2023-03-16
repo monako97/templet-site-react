@@ -23,8 +23,7 @@ const routers: Partial<RouterProps>[] = [
         path: '*',
         element: Navigate,
         props: {
-          to: '/home',
-          path: '/home',
+          to: 'home',
           replace: true,
         },
       },

@@ -1,3 +1,0 @@
-interface Models {
-  account: AccountModel;
-}
