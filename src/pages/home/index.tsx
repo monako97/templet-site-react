@@ -1,6 +1,6 @@
 import React, { type FC, useEffect } from 'react';
 import { localizable, useOutlet } from 'PackageNameByCore';
-import { account } from '@/store';
+import { account, loginUsername } from '@/store';
 
 const Home: FC = () => {
   const { info } = account;
@@ -8,7 +8,7 @@ const Home: FC = () => {
   const { t } = localizable;
 
   useEffect(() => {
-    account.loginUsername({
+    loginUsername({
       username: 'admin',
       password: '123456a',
     });
