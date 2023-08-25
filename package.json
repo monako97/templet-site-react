@@ -1,6 +1,6 @@
 {
-  "name": "template-site",
-  "version": "1.3.6",
+  "name": "templet-site-react",
+  "version": "0.0.1",
   "description": "静态站点模版",
   "main": "index.js",
   "scripts": {},
