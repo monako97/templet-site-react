@@ -1,6 +1,6 @@
 {
   "name": "templet-site-react",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "静态站点模版",
   "main": "index.js",
   "scripts": {},
@@ -9,7 +9,9 @@
   },
   "license": "MIT",
   "devDependencies": {},
-  "dependencies": {},
+  "dependencies": {
+    "shared-store-object": "^1.0.8"
+  },
   "files": [
     "config",
     "mock",
